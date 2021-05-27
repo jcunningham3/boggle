@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="w3-display-container w3-text-white w3-btn w3-center" style="width: 60%; height:400px;;">
+  <img src="static\img\desert.png" alt="" style="width: 100%;">
+  <div class="w3-display-topmiddle">
+    <div id="boggle">
+      <div class="">
+        <table class="board" style="margin-left: 60px; margin-top: 40px;">
+          <tbody>
+            {% for row in board %}
+            <tr>
+              {% for cell in row %}
+              <td>{{ cell }}</td>
+              {% endfor %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <p>High Score:
+        <b>{{ highscore }}</b>
+        in {{ num_of_trys }} plays
+      </p>
+
+      <p>
+        Score: <b class="score">0</b>
+        Seconds Left: <b class="timer"></b>
+      </p>
+
+      <form method="POST" class="add-word">
+        <input name="word" class="word" autofocus>
+        <button>Enter</button>
+      </form>
+
+      <p class="msg">
+        <!-- our JS will put messages here dynamically -->
+      </p>
+
+      <ul class="words">
+        <!-- our JS will words here as they score -->
+      </ul>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
